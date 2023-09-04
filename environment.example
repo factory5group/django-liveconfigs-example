@@ -1,0 +1,16 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+DJANGO_POSTGRES_HOST=postgres
+DJANGO_POSTGRES_PORT=5432
+DJANGO_POSTGRES_DB=liveconfigs_db
+DJANGO_POSTGRES_USER=admin
+DJANGO_POSTGRES_PASSWORD=password
+POSTGRES_DB=liveconfigs_db
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=password
+PGDATA=/home/postgresql/data
+
+
+REDIS_BASE_URL=redis://redis:6379
+CELERY_BROKER_URL=redis://redis:6379/0
+CELERY_WORKER_NAME=celery

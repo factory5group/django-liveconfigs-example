@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+if [[ $1 == 'devserver' ]]; then
+  python /app/manage.py migrate --noinput
+  python /app/manage.py collectstatic --noinput
+  python /app/manage.py load_config
+  python /app/manage.py runserver_plus 0.0.0.0:8080 --insecure
+elif [[ $1 == "celery_quick" ]]; then
+  celery -A celery_app worker -n "${CELERY_WORKER_NAME}_quick" --loglevel=INFO -Q quick,notify,celery
+elif [[ $1 == "celery_beat" ]]; then
+  rm -rf celerybeat.pid
+  celery -A celery_app purge -f -Q beat
+  celery -A celery_app beat --loglevel=DEBUG
+fi

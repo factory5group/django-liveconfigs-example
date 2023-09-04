@@ -1,0 +1,63 @@
+version: '3.8'
+
+x-common: &common
+  networks:
+    - net
+  env_file:
+    - environment
+
+services:
+  postgres:
+    <<: *common
+    image: postgres:12.1
+    volumes:
+       - db_data_liveconfigs:/home/postgresql
+       - db_data_liveconfigs:/var/log/postgresql
+    command: ["postgres", "-c", "log_statement=all", "-c", "log_destination=stderr"]
+
+  redis:
+    image: redis:6.0.5-buster
+    networks:
+      - net
+    volumes:
+        - redis_data_liveconfigs:/data
+
+  django:
+    <<: *common
+    restart: always
+    command: bash ./docker/start devserver
+    volumes:
+      - django_static_liveconfigs:/app/static
+    depends_on:
+      - redis
+      - postgres
+    expose:
+      - 8000
+
+  celery_quick:
+    <<: *common
+    restart: always
+    command: bash ./docker/start celery_quick
+    depends_on:
+      - redis
+      - postgres
+    ports: []
+
+  celery-beat:
+      <<: *common
+      restart: always
+      depends_on:
+        - redis
+        - postgres
+      ports: []
+      command: bash ./docker/start celery_beat
+
+networks:
+  net:
+
+volumes:
+  db_data_liveconfigs:
+      external: true
+  redis_data_liveconfigs:
+      external: true
+  django_static_liveconfigs: {}

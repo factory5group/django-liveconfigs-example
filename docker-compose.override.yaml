@@ -1,0 +1,31 @@
+version: '3.8'
+
+x-common: &common
+  build:
+    context: .
+    dockerfile: ./docker/Dockerfile
+    args:
+      - REQUIREMENTS_PATH=/requirements/requirements.txt
+  image: logx-local
+
+services:
+  postgres:
+    ports:
+      - 5431:5432
+
+  django:
+    <<: *common
+    volumes:
+      - .:/app
+    ports:
+      - 8080:8080
+
+  celery_quick:
+    <<: *common
+    volumes:
+      - .:/app
+
+  celery-beat:
+    <<: *common
+    volumes:
+      - .:/app
