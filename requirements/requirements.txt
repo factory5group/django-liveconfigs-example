@@ -1,15 +1,15 @@
-django==4.2.9
-djangorestframework==3.14.0
-psycopg[binary]==3.1.17
+django==5
+djangorestframework==3.15.1
+psycopg[binary]==3.1.18
 dj-database-url==2.0.0
 django-environ==0.8.1
 celery==5.3.6
 django-extensions==3.2.1
-django-celery-beat==2.5.0
+django-celery-beat==2.6.0
 werkzeug[watchdog]==2.3.4
 logwood==3.1.0
 django-redis==5.2.0
 flake8==4.0.1  # https://github.com/PyCQA/flake8
 pre-commit==2.18.1  # https://github.com/pre-commit/pre-commit
 isort==5.10.1
-django-liveconfigs @ git+https://github.com/factory5group/django-liveconfigs.git@main
+django-liveconfigs @ git+https://github.com/factory5group/django-liveconfigs.git@v1.0.2

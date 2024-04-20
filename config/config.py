@@ -1,5 +1,3 @@
-import operator
-
 from enum import Enum
 
 from liveconfigs import models, validators
@@ -90,3 +88,5 @@ class FirstExample(models.BaseConfig):
     CONSOLIDATION_GROUPS_DESCRIPTION = "Список комбинаций"
     CONSOLIDATION_GROUPS_TAGS = [ConfigTags.features]
     CONSOLIDATION_GROUPS_VALIDATORS = [validators.list_of_lists_includes_unique_elements]
+
+    TEST: float = 5.0
