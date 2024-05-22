@@ -1,4 +1,4 @@
-django==5
+django==5.0.6
 djangorestframework==3.15.1
 psycopg[binary]==3.1.18
 dj-database-url==2.0.0
@@ -12,4 +12,4 @@ django-redis==5.2.0
 flake8==4.0.1  # https://github.com/PyCQA/flake8
 pre-commit==2.18.1  # https://github.com/pre-commit/pre-commit
 isort==5.10.1
-django-liveconfigs @ git+https://github.com/factory5group/django-liveconfigs.git@v1.0.2
+django-liveconfigs==1.0.3
