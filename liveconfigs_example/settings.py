@@ -239,3 +239,7 @@ CACHES = {
 LC_MAX_STR_LENGTH_DISPLAYED_AS_TEXTINPUT = 50
 LC_ENABLE_PRETTY_INPUT = True
 LIVECONFIGS_SYNCWRITE = True    # sync write mode
+LC_CACHE_TTL = 1    # cache TTL in seconds
+# Максимальная длина значения конфига (в текстовом представлении) при которой значение в списке выводится целиком
+# При бОльшей длине визуал значения будет усечен ("Длинная строка" -> "Длин ... рока")
+LC_MAX_VISUAL_VALUE_LENGTH = 50

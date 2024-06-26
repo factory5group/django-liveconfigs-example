@@ -12,4 +12,4 @@ django-redis==5.2.0
 flake8==4.0.1  # https://github.com/PyCQA/flake8
 pre-commit==2.18.1  # https://github.com/pre-commit/pre-commit
 isort==5.10.1
-django-liveconfigs==1.0.3
+django-liveconfigs==1.0.5
