@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "django_celery_beat",
     "simpleapp.apps.SimpleappConfig",
+    "import_export",  # нужен для liveconfigs
     "liveconfigs",
 ]
 
