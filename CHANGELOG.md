@@ -1,5 +1,8 @@
 # Change history
 
+## 01-09-2024
+- new repository address: https://github.com/liveconfigs/django-liveconfigs-example
+
 ## 16-02-2024
 - added example with new type of validator
 - added django-liveconfigs's changes support
